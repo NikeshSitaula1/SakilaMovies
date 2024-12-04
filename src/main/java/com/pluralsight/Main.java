@@ -43,7 +43,7 @@ public class Main {
             String lastName = scanner.nextLine();
 
             try(
-                    PreparedStatement pStatement = connection.prepareStatement("" +
+                    PreparedStatement pStatement = connection.prepareStatement(
                             "SELECT first_name, last_name \n" +
                             "FROM sakila.actor\n" +
                             "WHERE last_name = ?")
@@ -90,7 +90,7 @@ public class Main {
             String lastName = scanner.nextLine();
 
             try (
-                    PreparedStatement preparedStatement = connection.prepareStatement("" +
+                    PreparedStatement preparedStatement = connection.prepareStatement(
                             "select film.title \n" +
                             "FROM sakila.film\n" +
                             "join film_actor on film_actor.film_id = film.film_id\n" +
