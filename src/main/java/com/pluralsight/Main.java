@@ -11,7 +11,7 @@ public class Main {
 
     static Scanner scanner = new Scanner(System.in);
 
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) {
 
         if (args.length != 3) {
             System.out.println(
@@ -34,7 +34,7 @@ public class Main {
         doMoviesOfName(dataSource);
     }
 
-    public static void doActorName(DataSource dataSource) throws SQLException {
+    public static void doActorName(DataSource dataSource) {
         try(
                 Connection connection = dataSource.getConnection();
             )
@@ -77,7 +77,7 @@ public class Main {
         }
     }
 
-    public static void doMoviesOfName(DataSource dataSource) throws SQLException {
+    public static void doMoviesOfName(DataSource dataSource) {
 
         try (
                 Connection connection = dataSource.getConnection();
@@ -119,6 +119,10 @@ public class Main {
                     }
                 }
             }
+        }
+        catch (SQLException e){
+            System.out.println("ERROR!");
+            e.printStackTrace();
         }
     }
 }
