@@ -105,10 +105,17 @@ public class Main {
                         ResultSet results = preparedStatement.executeQuery()
                     )
                 {
-                    System.out.println(firstName + " " + lastName + " are in these films: ");
-                    while (results.next()) {
-                        String col1 = results.getString("title");
-                        System.out.println(col1);
+                    if (results.next()){
+                        System.out.println(firstName + " " + lastName + " are in these films: ");
+
+                        do{
+                            String col1 = results.getString("title");
+                            System.out.println(col1);
+
+                        }while (results.next());
+                    }
+                    else {
+                        System.out.println("No matches!");
                     }
                 }
             }
